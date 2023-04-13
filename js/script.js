@@ -1,11 +1,42 @@
-const addBtn = document.getElementById("add-btn");
-const cancelBtn = document.getElementById("cancel-btn");
+const openModalBtn = document.getElementById("open-modal");
+const closeModalBtn = document.getElementById("close-modal");
 const modal = document.getElementById("modal");
+const addBtn = document.getElementById("add-book-btn");
+const title = document.getElementById("title");
+const author = document.getElementById("author");
+const pages = document.getElementById("pages");
+const library = [];
 
-addBtn.addEventListener("click", function () {
-  modal.style.display = "flex";
-});
+function Book(title, author, pages) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+}
 
-cancelBtn.addEventListener("click", function () {
+function clearInputs() {
+  title.value = "";
+  author.value = "";
+  pages.value = "";
+}
+
+function closeModal() {
   modal.style.display = "none";
+}
+
+function openModal() {
+  modal.style.display = "flex";
+}
+
+addBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  const book = new Book(title.value, author.value, pages.value);
+
+  library.push(book);
+
+  clearInputs();
+  closeModal();
 });
+
+openModalBtn.addEventListener("click", openModal);
+
+closeModalBtn.addEventListener("click", closeModal);
