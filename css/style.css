@@ -63,6 +63,8 @@
     padding: 0.25em;
     height: 60px;
     width: 60px;
+    border: none;
+    background-color: aquamarine;
 }
 
 .add-btn:hover {
@@ -83,11 +85,12 @@
 }
 
 .modal-container {
-    background-color: beige;
+    background-color: cornflowerblue;
     display: flex;
     flex-direction: column;
     gap: 1em;
     padding: 2em;
+    border-radius: 10%;
 }
 
 .modal-container input {
